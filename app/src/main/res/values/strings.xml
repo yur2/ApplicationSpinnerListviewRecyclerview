@@ -1,0 +1,16 @@
+<resources>
+    <!--<string name="app_name">Application(Spinner,Listview,Recyclerview)</string>-->
+    <string name="spinner">SPINNER</string>
+
+    <string-array name="spinner_array">
+
+        <item>cute</item>
+        <item>sexy</item>
+        <item>pretty</item>
+        <item>lovely</item>
+        <item>unique</item>
+        <item>funny</item>
+
+
+    </string-array>
+</resources>
