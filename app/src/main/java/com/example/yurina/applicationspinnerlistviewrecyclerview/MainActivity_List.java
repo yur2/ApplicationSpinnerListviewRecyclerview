@@ -26,58 +26,72 @@ public class MainActivity_List extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__list);
 
-        init();
 
-        Button nextbtn = (Button) findViewById(R.id.nextbtn);
 
-        nextbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity_List.this, List_ub_Activity.class);
-                startActivity(intent);
-            }
-        });
+
+
+
+
+
+
+
+
+
+
+
+
+//        init();
+
+//        Button nextbtn = (Button) findViewById(R.id.nextbtn);
+//
+//        nextbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity_List.this, List_ub_Activity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
+}
 
-
-    private void init() {
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-
-
-        //String[] favorite = {"apple", "strawberry", "lemon", "onion", "pepper"};
-//        array.add("apple");
-//        array.add("banana");
+//    private void init() {
+//        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+//
+//
+//        //String[] favorite = {"apple", "strawberry", "lemon", "onion", "pepper"};
+////        array.add("apple");
+////        array.add("banana");
+////
+////        adapter = ArrayAdapter.createFromResource(
+////                this, R.array.spinner_array, android.R.layout.simple_spinner_item);
+////        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+////        spinner.setAdapter(adapter);
+//
+//        //  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, array);
+//
 //
 //        adapter = ArrayAdapter.createFromResource(
 //                this, R.array.spinner_array, android.R.layout.simple_spinner_item);
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinner.setAdapter(adapter);
-
-        //  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, array);
-
-
-        adapter = ArrayAdapter.createFromResource(
-                this, R.array.spinner_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity_List.this, parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-    }
-
-
-}
+//
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(MainActivity_List.this, parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//
+//
+//    }
+//
+//
+//}
 
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
 //                this, R.array.spinner_array, android.R.layout.simple_spinner_item);
