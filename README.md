@@ -2,7 +2,7 @@
 
 
 > ## Spinner
-선택 상자를 출력한 후에 상자를 선택하면 아래쪽으로 목록이 나타나도록 하는 기능을 말한다.
+> 선택 상자를 출력한 후에 상자를 선택하면 아래쪽으로 목록이 나타나도록 하는 기능을 말한다.
 안드로이드에서는 목록을 나타나게 할 때 "Adapter"라는 객체를 이용합니다. 이것은 행 레이아웃과 여기에 매핑할 데이터를 정의하는 기능을 합니다.
 prompt를 사용하면 화면에 뜨게 된다.
 
@@ -32,18 +32,18 @@ prompt를 사용하면 화면에 뜨게 된다.
 >SimpleAdapter(XML 등으로부터 가져올 때)를 구분하여 사용합니다.
 
 ## 리스트 뷰의 단점
->1. ViewHolder 지원이 되지 않아 퍼포먼스 관리가 어렵다.
-2. ListView 화면을 유연하게 바꿀수 없다.
-3. Animation 적용이 어렵다.
+> 1. ViewHolder 지원이 되지 않아 퍼포먼스 관리가 어렵다.
+> 2. ListView 화면을 유연하게 바꿀수 없다.
+> 3. Animation 적용이 어렵다.
 
 > **을 recyclerview는 가능하다**
 > 
    그리고,, 
   
-1. LayoutManager
-2. ViewHolder
-3. Item 
-4. Animation
+> 1. LayoutManager
+> 2. ViewHolder
+> 3. Item 
+> 4. Animation
 
 >가 추가되어 따로 관리 할 수 있어욤ㅎㅎ
 >
