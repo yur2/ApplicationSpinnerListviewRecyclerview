@@ -13,4 +13,16 @@
 
 
     </string-array>
+
+    <string-array name="img">
+        <item>@drawable/apple</item>
+        <item>@drawable/strawberry</item>
+        <item>@drawable/tomato</item>
+    </string-array>
+
+    <string-array name="content">
+        <item>apple</item>
+        <item>strawberry</item>
+        <item>tomato</item>
+    </string-array>
 </resources>

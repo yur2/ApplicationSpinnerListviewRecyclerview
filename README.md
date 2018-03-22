@@ -83,5 +83,53 @@ prompt를 사용하면 화면에 뜨게 된다.
 > StaggeredGridLayouManager : 이 레이아웃을 통해 뷰마다 크기가 다른 레이아웃을 만들 수 있습니다.
 
 > GridLayoutManager : 여러분의 사진첩 같은 격자형 리스트를 만들 수 있습니다.
+> 
+> ##layoutInflater
+> XML에 정의된 Resource(자원) 들을 View의 형태로 반환해 줍니다. 보통 자바 코드에서 View, ViewGroup 을 사용하거나, Adpter의 getview() 또는 Dialog, Popup 구현시 배경화면이 될 Layout을 만들어 놓고 View의 형태로 반환 받아 Acitivity에서 실행 하게 됩니다.
+우리가 보통 Activity를 만들면 onCreate() 메서드에 기본으로 추가되는 setContentView(R.layout.activity_main) 메서드와 같은 원리라고 생각하면 된다. 이 메서드 또한 activity_main.xml 파일을 View로 만들어서 Activity 위에 보여준다. 사용자의 화면에 보여지는 것들은 Activity 위에 있는 View라는 점 잊지말깅~!
+
+>즉 간단히 말해서
+>
+>**1. 안드로이드에서 레이아웃 XML파일을 View객체로 만들기 위해서는 LayoutInflater를 이용한다.**
+>
+>**2. XML레이아웃 파일에서 뷰를 생성할때는 LayoutInflater를 이용해야 한다.**
+>
+>**3. LayoutInflater는 LayoutInflater.from(context)를 이용하여 얻을 수 있다.**
+>
+>**4. LayoutInflater객체의 inflate메서드를 이용하여 새로운 뷰를 생성 할 수 있다.**
+
+## custom adpater 할 때,,
+public myCustomAdapter(Context context, int layout, ArrayList<Item> alist) 일때,,
+
+– context : 현재의 Context. 일반적으로 Adapter를 포함하는Activity의 instance가 들어간다.
+
+– layout : 각 항목을 나타내는 layout 파일의 resource ID. 예를 들어, 아까 만든 item_layout.xml 이 이 자리에 들어가게 된다.
+
+– alist : ListView에 나타낼 리스트 객체
+
+## 새로운 어댑터를 생성시, 자동완성으로 함수가 뜨는데 이런 의미다 아래에 자세한 설명 있음!!
+class Myadapter extends BaseAdapter {
+
+
+– int getCount() : 리스트 객체 내의 item의 갯수를 반환해주는 함수. 리스트 객체의 size를 반환해주면된다
+
+– Object getItem() : 전달받은 position의 위치에 해당하는 리스트 객체의 item를 객체 형태로 반환해주는 함수.
+
+– long getItemId() : 전달받은 position의 위치에 해당하는 리스트 객체의 item의 row ID를 반환해주는 함수.
+
+-View getView() 함수가 가장 중요한 데, 간단히 말해서 화면에 보여지는 각각의 ListView의 항목들을 출력하는 함수이다. 예를 들어 화면에 나타나는 ListView의 항목이 5개라면, getView() 함수가 5번 호출된다.
+
+## View getView() 설명@-@ 중요해욤ㅎㅎ
+
+public abstract View getView (int position, View convertView, ViewGroup parent)
+
+– position : 해당되는 항목의 Adapter에서의 위치값
+
+– convertView : 재사용할 항목의 View
+
+– parent : 항목의 View들을 포함하고 있는 ListView
+
+convertView에서 갑자기 재사용(?) 이라는 말에 물음표가 생길 것이다. 간단하게 얘기하면, 만약 리스트 객체에 100개의 데이터가 있고, 10개의 항목만을 보여주는 ListView가 있다고 하자. 처음에는 가장 앞의 10개의 데이터가 화면에 나타나고, 스크롤할 때마다 화면에 나타나지 않았던 데이터가 하나씩 나타날 것이다. 하지만 그 때마다 똑같은 형식의 새로운 View를 만들어준다면 이것은 너무 resource 측면에서 비효율적일 것이다. 그래서 화면에서 없어진 View를 일단 convertView 변수에 넣고. 새로 나타나는 View는 converView에서 꺼낸 View를 다시 재사용함으로써 이를 해결한다.
+
 
 
