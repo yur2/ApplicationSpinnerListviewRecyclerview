@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="recyclerView" type="id" />
+    <item name="apple" type="id" />
+    <item name="strawberry" type="id" />
+    <item name="tomato" type="id" />
+    <item name="text1" type="id" />
+    <item name="image1" type="id" />
+    <item name="gridlayout" type="id" />
 </resources>

@@ -12,32 +12,31 @@
     <!--android:layout_height="wrap_content"-->
     <!--android:divider="@color/colorPrimary"-->
     <!--android:dividerHeight="3dp"></android.support.v7.app.AlertController.RecycleListView>-->
-    <TextView
-        android:id="@+id/textview1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="선택하세영!!"
-        android:textSize="30dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/textview1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="선택하세영!!"-->
+        <!--android:textSize="30dp" />-->
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textview1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/apple"/>
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/apple"/>-->
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/strawberry"/>
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/strawberry"/>-->
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tomato"/>
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/tomato"/>-->
 </RelativeLayout>

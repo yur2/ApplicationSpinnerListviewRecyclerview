@@ -27,10 +27,11 @@ import java.util.zip.Inflater;
 public class MainActivity_List extends AppCompatActivity {
 
     private ListView listView;
-    //    TextView textView;
     private Myadapter myadapter;
 
-    //ArrayList<String> datas = new ArrayList();
+    int[] img = {R.mipmap.tomato, R.mipmap.strawberry, R.mipmap.apple};
+    String[] content = {"tomato", "strawberry", "apple"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,9 @@ public class MainActivity_List extends AppCompatActivity {
 
 
         listView = (ListView) findViewById(R.id.listview);
-//        myadapter = new Myadapter();
+       // myadapter = new Myadapter();
 
-        //어뎁터에 아이템 추가
-//        myadapter.addItem("apple", R.mipmap.apple);
-//        myadapter.addItem("strawberry", R.mipmap.strawberry);
-//        myadapter.addItem("tomato", R.mipmap.tomato);
-        myadapter.addItem("apple", 3);
-//
+
 
         listView.setAdapter(myadapter);
     }
@@ -59,6 +55,7 @@ class Myadapter extends BaseAdapter {
     int layout;
     ArrayList<Item> arrayList;
     LayoutInflater inflater;
+
 
     public Myadapter(Context context, int layout, ArrayList<Item> arrayList) {
         this.context = context;
@@ -86,42 +83,22 @@ class Myadapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            //LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context, Layout_In)
-            convertView = inflater.inflate(R.layout.activity_main__list, parent, false);
+            convertView = inflater.inflate(R.layout.item, parent, false);
         }
         TextView text1 = (TextView) convertView.findViewById(R.id.text1);
         ImageView image1 = (ImageView) convertView.findViewById(R.id.image1);
 
         GridLayout gridLayout = (GridLayout) convertView.findViewById(R.id.gridlayout);
 
-        Item item  = arrayList.get(position);
+        //Item item  = arrayList.get(position);
 
         text1.setText(arrayList.get(position).getContent());
         image1.setImageResource(arrayList.get(position).getImg());
-//
-//        gridLayout.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//                arrayList.remove(position);
-////            Intent intent = new Intent(MainActivity_List.this, recyclerviewActivity.class);
-////            startAc
-//
-//            }
-//        });
-//
+
 
         return convertView;
     }
 
-    public void addItem(String content, int img) {
-        Item item = new Item();
-        item.setContent(content);
-        item.setImg(img);
-
-        arrayList.add(item);
-
-    }
 
 }
 
@@ -129,11 +106,11 @@ class Myadapter extends BaseAdapter {
 class Item {
     String content;
     int img;
-//
-//    public Item(String content, int img) {
-//        this.content = content;
-//        this.img = img;
-//    }
+
+    public Item(String content, int img) {
+        this.content = content;
+        this.img = img;
+    }
 
     public String getContent() {
         return content;
@@ -151,14 +128,6 @@ class Item {
         this.img = img;
     }
 
-
-//    public void addItem(String content, int img) {
-//        Item item = new Item();
-//        item.setContent(content);
-//        item.setImg(img);
-//
-//        Item.add(item);
-//    }
 
 }
 //        setContentView(R.layout.activity_main__list);
@@ -210,3 +179,28 @@ class Item {
 //        listView = (ListView)findViewById(R.id.listview);
 //        Myadapter myadapter = new Myadapter(oData);
 //        listView.setAdapter(myadapter);
+
+//
+//
+//        ArrayList<Item> arraylist1 = new ArrayList<Item>();
+//        Item item;
+//        item = new Item("apple",R.drawable.apple);
+//        arraylist1.add(item);
+//        item = new Item("strawberry",R.drawable.strawberry);
+//        arraylist1.add(item);
+//        item = new Item("tomato",R.drawable.tomato);
+//        arraylist1.add(item);
+
+
+
+//        gridLayout.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View v) {
+//               // arrayList.remove(position);
+////            Intent intent = new Intent(MainActivity_List.this, recyclerviewActivity.class);
+////            startAc
+//
+//
+//            }
+//        });

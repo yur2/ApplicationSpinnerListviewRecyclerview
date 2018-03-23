@@ -27,18 +27,14 @@ public class recyclerviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recyclerview);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        layoutManager = new GridLayoutManager(recyclerviewActivity.this, 3);
+        recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(layoutManager);
 
         Adapter2 arrayAdapter2 = new Adapter2();
         recyclerView.setAdapter(arrayAdapter2);
 
-        //recyclerviewActivity adapter = new recyclerviewActivity(getActivity(),R.layout.)
-
-//        array2.add("potato");
-//        array2.add("sweat potato");
-//        array2.add("tomato");
-//        array2.add("lettuce");
 
         array2.add(new Data2("strawberry", R.mipmap.strawberry));
         array2.add(new Data2("apple", R.mipmap.apple));
@@ -48,31 +44,34 @@ public class recyclerviewActivity extends AppCompatActivity {
     }
 }
 
-class Adapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder> {
+
     int images[] = {R.mipmap.apple, R.mipmap.strawberry, R.mipmap.tomato};
 
 
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recyclerview, parent, false);
-        return new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        //holder.apple.setImageResource(Data2.get(position).img);
-                //setImageResource(images[position]);v
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.apple.setImageResource(images[position]);
+        holder.strawberry.setImageResource((images[position]));
+        holder.tomato.setImageResource(images[position]);
 
     }
 
     @Override
     public int getItemCount() {
+
         return images.length;
     }
 
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-    private class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView apple, strawberry, tomato;
 
