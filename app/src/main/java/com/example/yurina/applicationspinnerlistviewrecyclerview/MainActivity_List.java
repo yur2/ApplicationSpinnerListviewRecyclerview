@@ -31,20 +31,25 @@ public class
 MainActivity_List extends AppCompatActivity {
 
     private ListView listView;
-
+    ArrayList<CustomAdapter.Item> datas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__list);
 
-        ArrayList<CustomAdapter.Item> datas = new ArrayList<CustomAdapter.Item>();
+        datas = new ArrayList<>();
+        dataLoader();
 
-        listView = (ListView) findViewById(R.id.listview);
-
+        listView = findViewById(R.id.listview);
         CustomAdapter customAdapter = new CustomAdapter(datas, this);
         listView.setAdapter(customAdapter);
 
+
+
+    }
+
+    private void dataLoader() {
         datas.add(new CustomAdapter.Item(R.mipmap.tomato, "tomoato", "토메이토 토네이도"));
         datas.add(new CustomAdapter.Item(R.mipmap.apple, "apple", "먹으면 이뻐진데~"));
         datas.add(new CustomAdapter.Item(R.mipmap.strawberry, "strawberry", "귀 귀요밍 귀"));
@@ -57,9 +62,6 @@ MainActivity_List extends AppCompatActivity {
         datas.add(new CustomAdapter.Item(R.mipmap.pear, "pear", "배애애애뱀"));
         datas.add(new CustomAdapter.Item(R.mipmap.pineapple, "pineapple", "썩은 사과는?"));
         datas.add(new CustomAdapter.Item(R.mipmap.melon, "melon", "지리고 오지고 노란색도 있찌여"));
-
-
-
     }
 
     static class CustomAdapter extends BaseAdapter {
@@ -129,50 +131,5 @@ MainActivity_List extends AppCompatActivity {
             return convertView;
         }
 
-       static class Item {
 
-            private int imageView;
-            private String textView;
-            private String textview;
-
-
-            public Item(int imageView, String textView, String textview) {
-                this.imageView = imageView;
-                this.textView = textView;
-                this.textview = textview;
-
-            }
-
-
-            public int getImageView() {
-
-                return imageView;
-            }
-
-            public void setImageView(int imageView) {
-
-                this.imageView = imageView;
-            }
-
-            public String getTextView() {
-
-                return textView;
-            }
-
-            public void setTextView(String textView) {
-                this.textView = textView;
-            }
-
-            public String getTextview() {
-
-                return textview;
-            }
-
-            public void setTextview(String textview) {
-                this.textview = textview;
-            }
-
-
-        }
-    }
 }
