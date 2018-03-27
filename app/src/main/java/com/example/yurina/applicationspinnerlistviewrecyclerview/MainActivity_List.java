@@ -1,10 +1,13 @@
 package com.example.yurina.applicationspinnerlistviewrecyclerview;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
-public class MainActivity_List extends AppCompatActivity {
+public class
+MainActivity_List extends AppCompatActivity {
 
     private ListView listView;
-    private Myadapter myadapter;
-
-    int[] img = {R.mipmap.tomato, R.mipmap.strawberry, R.mipmap.apple};
-    String[] content = {"tomato", "strawberry", "apple"};
 
 
     @Override
@@ -38,169 +38,141 @@ public class MainActivity_List extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__list);
 
+        ArrayList<CustomAdapter.Item> datas = new ArrayList<CustomAdapter.Item>();
 
         listView = (ListView) findViewById(R.id.listview);
-       // myadapter = new Myadapter();
+
+        CustomAdapter customAdapter = new CustomAdapter(datas, this);
+        listView.setAdapter(customAdapter);
+
+        datas.add(new CustomAdapter.Item(R.mipmap.tomato, "tomoato", "토메이토 토네이도"));
+        datas.add(new CustomAdapter.Item(R.mipmap.apple, "apple", "먹으면 이뻐진데~"));
+        datas.add(new CustomAdapter.Item(R.mipmap.strawberry, "strawberry", "귀 귀요밍 귀"));
+        datas.add(new CustomAdapter.Item(R.mipmap.avocado, "avocado", "내가 젤 좋아흐는 놈"));
+        datas.add(new CustomAdapter.Item(R.mipmap.kiwe, "kiwi", "새콤이달콩잉"));
+        datas.add(new CustomAdapter.Item(R.mipmap.peach, "peach", "향개좋~"));
+        datas.add(new CustomAdapter.Item(R.mipmap.banana, "banana", "나보면 바나나"));
+        datas.add(new CustomAdapter.Item(R.mipmap.cherry, "cherry", "둘이먹다 하나가죽어도모른다능"));
+        datas.add(new CustomAdapter.Item(R.mipmap.mango, "mango", "필리핀이 진리지"));
+        datas.add(new CustomAdapter.Item(R.mipmap.pear, "pear", "배애애애뱀"));
+        datas.add(new CustomAdapter.Item(R.mipmap.pineapple, "pineapple", "썩은 사과는?"));
+        datas.add(new CustomAdapter.Item(R.mipmap.melon, "melon", "지리고 오지고 노란색도 있찌여"));
 
 
-
-        listView.setAdapter(myadapter);
-    }
-}
-
-
-class Myadapter extends BaseAdapter {
-
-    Context context;
-    int layout;
-    ArrayList<Item> arrayList;
-    LayoutInflater inflater;
-
-
-    public Myadapter(Context context, int layout, ArrayList<Item> arrayList) {
-        this.context = context;
-        this.layout = layout;
-        this.arrayList = arrayList;
-        inflater = LayoutInflater.from(context);
 
     }
 
-    @Override
-    public int getCount() {
-        return arrayList.size();
-    }
+    static class CustomAdapter extends BaseAdapter {
 
-    @Override
-    public Object getItem(int position) {
-        return arrayList.get(position);
-    }
+        ArrayList<Item> datas;
+        LayoutInflater inflater;
+        Context context;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item, parent, false);
+        public CustomAdapter(ArrayList<Item> datas, Context context) {
+            this.context = context;
+            this.datas = datas;
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
-        TextView text1 = (TextView) convertView.findViewById(R.id.text1);
-        ImageView image1 = (ImageView) convertView.findViewById(R.id.image1);
 
-        GridLayout gridLayout = (GridLayout) convertView.findViewById(R.id.gridlayout);
+        // 데이터의 전체 크기를 반환해주는 메소드
+        @Override
+        public int getCount() {
 
-        //Item item  = arrayList.get(position);
+            return datas.size();
+        }
 
-        text1.setText(arrayList.get(position).getContent());
-        image1.setImageResource(arrayList.get(position).getImg());
+        // 데이터의 값을 반환해주는 메소드
+        @Override
+        public Object getItem(int position) {
 
 
-        return convertView;
+            return datas.get(position);
+        }
+
+        // 눌린 item의 번호를 리턴해주는 메소드
+        @Override
+        public long getItemId(int position) {
+
+
+            return position;
+
+
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.item, null);
+            }
+            ImageView imageView = convertView.findViewById(R.id.imageView);
+            imageView.setImageResource(datas.get(position).imageView);
+
+            TextView textView = convertView.findViewById(R.id.textView);
+            textView.setText(datas.get(position).textView);
+
+            TextView textview = convertView.findViewById(R.id.textview);
+            textview.setText(datas.get(position).textview);
+
+            Button btn1 = convertView.findViewById(R.id.btn1);
+            final View finalConvertView = convertView;
+            final View finalConvertView1 = convertView;
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(finalConvertView.getContext(), recyclerviewActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
+
+            return convertView;
+        }
+
+       static class Item {
+
+            private int imageView;
+            private String textView;
+            private String textview;
+
+
+            public Item(int imageView, String textView, String textview) {
+                this.imageView = imageView;
+                this.textView = textView;
+                this.textview = textview;
+
+            }
+
+
+            public int getImageView() {
+
+                return imageView;
+            }
+
+            public void setImageView(int imageView) {
+
+                this.imageView = imageView;
+            }
+
+            public String getTextView() {
+
+                return textView;
+            }
+
+            public void setTextView(String textView) {
+                this.textView = textView;
+            }
+
+            public String getTextview() {
+
+                return textview;
+            }
+
+            public void setTextview(String textview) {
+                this.textview = textview;
+            }
+
+
+        }
     }
-
-
 }
-
-
-class Item {
-    String content;
-    int img;
-
-    public Item(String content, int img) {
-        this.content = content;
-        this.img = img;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
-    }
-
-
-}
-//        setContentView(R.layout.activity_main__list);
-//
-//        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-//        GridLayout gridLayout = (GridLayout) findViewById(R.id.gridlayout);
-//inflater.inflate(R.layout.)
-
-// ImageView imageView = (ImageView)inflater.inflate(R.layout.)
-
-// LayoutInflater inflater1 = LayoutInflater.from(context);
-
-//        for (int i = 0; i < 100; i++) {
-//            datas.add(i + "");
-//
-//        }
-//        datas.add("나는");
-//        datas.add("귀요밍");
-//        datas.add("뀨");
-//
-//        listView = findViewById(R.id.listview);
-//
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, datas);
-//
-//        listView.setAdapter(adapter);
-
-//        convertView = Inflater.inflate(layoutId, parent,false);
-//
-//        TextView text2 = (TextView)convertView.findViewById(R.id.text2);
-//        text2.setText(datas.get(position).phone);
-//        ImageView image1 = (ImageView)convertView.findViewById(R.id.image1);
-
-//        String[] content = {"apple","strawberry","tomato"};
-//        int[] img = {R.mipmap.apple, R.mipmap.strawberry, R.mipmap.tomato};
-
-//        String[] strDate = {"2017-01-03", "1965-02-23", "2016-04-13", "2010-01-01", "2017-06-20",
-//                "2012-07-08", "1980-04-14", "2016-09-26", "2014-10-11", "2010-12-24"};
-//        int nDatCnt=0;
-//        ArrayList<Item> oData = new ArrayList<>();
-//        for (int i=0; i<1000; ++i)
-//        {
-//            Item oItem = new Item();
-//            oItem.content = "데이터 " + (i+1);
-//            oItem.img = img[nDatCnt++];
-//            oData.add(oItem);
-//            if (nDatCnt >= content.length) nDatCnt = 0;
-//        }
-//
-//        listView = (ListView)findViewById(R.id.listview);
-//        Myadapter myadapter = new Myadapter(oData);
-//        listView.setAdapter(myadapter);
-
-//
-//
-//        ArrayList<Item> arraylist1 = new ArrayList<Item>();
-//        Item item;
-//        item = new Item("apple",R.drawable.apple);
-//        arraylist1.add(item);
-//        item = new Item("strawberry",R.drawable.strawberry);
-//        arraylist1.add(item);
-//        item = new Item("tomato",R.drawable.tomato);
-//        arraylist1.add(item);
-
-
-
-//        gridLayout.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//               // arrayList.remove(position);
-////            Intent intent = new Intent(MainActivity_List.this, recyclerviewActivity.class);
-////            startAc
-//
-//
-//            }
-//        });

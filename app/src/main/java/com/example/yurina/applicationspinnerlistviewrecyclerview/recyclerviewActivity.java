@@ -1,6 +1,7 @@
 package com.example.yurina.applicationspinnerlistviewrecyclerview;
 
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+
 
 import java.util.ArrayList;
 
@@ -28,11 +30,11 @@ public class recyclerviewActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         layoutManager = new GridLayoutManager(recyclerviewActivity.this, 3);
-        recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(layoutManager);
 
-        Adapter2 arrayAdapter2 = new Adapter2();
+        recyclerView.setHasFixedSize(true);
+
+        Adapter2 arrayAdapter2 = new Adapter2(array2, this);
         recyclerView.setAdapter(arrayAdapter2);
 
 
@@ -45,29 +47,35 @@ public class recyclerviewActivity extends AppCompatActivity {
 }
 
 class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder> {
+    ArrayList<Data2> array2;
+    LayoutInflater inflater;
+    Context context;
 
-    int images[] = {R.mipmap.apple, R.mipmap.strawberry, R.mipmap.tomato};
-
+    public Adapter2(ArrayList<Data2> array2, Context context) {
+        this.context = context;
+        this.array2 = array2;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recyclerview, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.apple.setImageResource(images[position]);
-        holder.strawberry.setImageResource((images[position]));
-        holder.tomato.setImageResource(images[position]);
+        holder.apple.setImageResource(array2.get(position).img);
+        holder.strawberry.setImageResource((array2.get(position).img));
+        holder.tomato.setImageResource(array2.get(position).img);
 
     }
 
     @Override
     public int getItemCount() {
 
-        return images.length;
+        return array2.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -85,6 +93,8 @@ class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder> {
 
         }
     }
+
+
 }
 
 

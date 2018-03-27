@@ -12,8 +12,17 @@ class Data2 {
         return text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public int getImg() {
+
         return img;
+    }
+
+    public void setImg(int img) {
+        this.img = img;
     }
 
     public Data2(String text, int img) {
