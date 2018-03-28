@@ -54,28 +54,64 @@ MainActivity_List extends AppCompatActivity {
     }
 
 
-
-
     private void dataLoader() {
 
         data = new FruitData();
 
-        data.setFruitName("토메이토");
-        data.setFruitDesc("tomoato");
-
-      //  data.setFruitImg(R.mipmap.tomato);
-       //data.setFruitImg(Glide.with(this).load("http://cfile10.uf.tistory.com/image/272E043C51A54D3F05F7FF"));
+        data.setFruitName("눈");
+        data.setFruitDesc("눈에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.eye);
+        //data.setFruitImg(Glide.with(this).load("http://cfile10.uf.tistory.com/image/272E043C51A54D3F05F7FF"));
 
 
         datas.add(data);
 
         data = new FruitData();
 
-        data.setFruitName("apple");
-        data.setFruitDesc("먹으면 이뻐진데~");
-        //data.setFruitImg(R.mipmap.apple);
+        data.setFruitName("입");
+        data.setFruitDesc("입에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.lip);
 
         datas.add(data);
+
+        data = new FruitData();
+
+        data.setFruitName("척추");
+        data.setFruitDesc("척추에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.back);
+
+        datas.add(data);
+
+        data = new FruitData();
+
+        data.setFruitName("미세먼지");
+        data.setFruitDesc("미세먼지에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.air);
+
+        datas.add(data);
+
+        data = new FruitData();
+
+        data.setFruitName("손");
+        data.setFruitDesc("손에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.hand);
+
+        datas.add(data);
+        data = new FruitData();
+
+        data.setFruitName("감기");
+        data.setFruitDesc("감기에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.cold);
+
+        datas.add(data);
+        data = new FruitData();
+
+        data.setFruitName("입");
+        data.setFruitDesc("입에 대한 건강 상식");
+        data.setFruitImg(R.mipmap.lip);
+
+        datas.add(data);
+
 
 //        data.FruitName = "strawberry";
 //        data.FruitDesc = "귀 귀요밍 귀";
@@ -152,7 +188,7 @@ MainActivity_List extends AppCompatActivity {
 
             // setData
             Glide.with(context).load(datas.get(position).getFruitImg()).into(imageView);
-          // Glide.with(context).load("http://ext.fmkorea.com/files/attach/new/20170811/486616/638771632/739224727/99b983892094b5c6d2fc3736e15da7d1.jpg");
+            // Glide.with(context).load("http://ext.fmkorea.com/files/attach/new/20170811/486616/638771632/739224727/99b983892094b5c6d2fc3736e15da7d1.jpg");
 
             textView.setText(datas.get(position).getFruitName());
             textview.setText(datas.get(position).getFruitDesc());

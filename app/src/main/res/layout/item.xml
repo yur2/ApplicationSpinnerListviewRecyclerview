@@ -44,8 +44,8 @@
             android:id="@+id/btn1"
             android:layout_below="@id/listview"
             android:textSize="15dp"
-            android:text="next"
-            android:layout_marginLeft="105dp"/>
+            android:text="자세히"
+            android:layout_marginLeft="120dp"/>
 
 
 
