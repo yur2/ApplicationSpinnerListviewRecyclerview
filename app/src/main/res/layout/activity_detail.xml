@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yurina.applicationspinnerlistviewrecyclerview.DetailActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알아보자"
+        android:id="@+id/text1"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image2"
+        android:layout_below="@+id/text1"
+        android:/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:textSize="20dp"
+        android:nextFocusRight="@color/colorPrimary"
+        android:id="@+id/backbtn"
+        android:layout_below="@+id/image2"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"/>
+
+</RelativeLayout>

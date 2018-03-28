@@ -23,15 +23,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
+
+import Data.FruitData;
 
 public class
 MainActivity_List extends AppCompatActivity {
 
     private ListView listView;
-    ArrayList<CustomAdapter.Item> datas;
+    ArrayList<FruitData> datas;
+    FruitData data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +51,63 @@ MainActivity_List extends AppCompatActivity {
         listView.setAdapter(customAdapter);
 
 
-
     }
 
+
+
+
     private void dataLoader() {
-        datas.add(new CustomAdapter.Item(R.mipmap.tomato, "tomoato", "토메이토 토네이도"));
-        datas.add(new CustomAdapter.Item(R.mipmap.apple, "apple", "먹으면 이뻐진데~"));
-        datas.add(new CustomAdapter.Item(R.mipmap.strawberry, "strawberry", "귀 귀요밍 귀"));
-        datas.add(new CustomAdapter.Item(R.mipmap.avocado, "avocado", "내가 젤 좋아흐는 놈"));
-        datas.add(new CustomAdapter.Item(R.mipmap.kiwe, "kiwi", "새콤이달콩잉"));
-        datas.add(new CustomAdapter.Item(R.mipmap.peach, "peach", "향개좋~"));
-        datas.add(new CustomAdapter.Item(R.mipmap.banana, "banana", "나보면 바나나"));
-        datas.add(new CustomAdapter.Item(R.mipmap.cherry, "cherry", "둘이먹다 하나가죽어도모른다능"));
-        datas.add(new CustomAdapter.Item(R.mipmap.mango, "mango", "필리핀이 진리지"));
-        datas.add(new CustomAdapter.Item(R.mipmap.pear, "pear", "배애애애뱀"));
-        datas.add(new CustomAdapter.Item(R.mipmap.pineapple, "pineapple", "썩은 사과는?"));
-        datas.add(new CustomAdapter.Item(R.mipmap.melon, "melon", "지리고 오지고 노란색도 있찌여"));
+
+        data = new FruitData();
+
+        data.setFruitName("토메이토");
+        data.setFruitDesc("tomoato");
+
+      //  data.setFruitImg(R.mipmap.tomato);
+       //data.setFruitImg(Glide.with(this).load("http://cfile10.uf.tistory.com/image/272E043C51A54D3F05F7FF"));
+
+
+        datas.add(data);
+
+        data = new FruitData();
+
+        data.setFruitName("apple");
+        data.setFruitDesc("먹으면 이뻐진데~");
+        //data.setFruitImg(R.mipmap.apple);
+
+        datas.add(data);
+
+//        data.FruitName = "strawberry";
+//        data.FruitDesc = "귀 귀요밍 귀";
+//        data.FruitImg = R.mipmap.strawberry;
+//
+//        datas.add(data);
+//
+//        data.FruitName = "avocado";
+//        data.FruitDesc = "내가 젤 좋아흐는 놈";
+//        data.FruitImg = R.mipmap.avocado;
+//
+//        datas.add(data);
+
+
+//        (R.mipmap.avocado, "avocado", "내가 젤 좋아흐는 놈"));
+//        (R.mipmap.kiwe, "kiwi", "새콤이달콩잉"));
+//        (R.mipmap.peach, "peach", "향개좋~"));
+//        (R.mipmap.banana, "banana", "나보면 바나나"));
+//        (R.mipmap.cherry, "cherry", "둘이먹다 하나가죽어도모른다능"));
+//        (R.mipmap.mango, "mango", "필리핀이 진리지"));
+//        (R.mipmap.pear, "pear", "배애애애뱀"));
+//        (R.mipmap.pineapple, "pineapple", "썩은 사과는?"));
+//        (R.mipmap.melon, "melon", "지리고 오지고 노란색도 있찌여"));
     }
 
     static class CustomAdapter extends BaseAdapter {
 
-        ArrayList<Item> datas;
+        ArrayList<FruitData> datas;
         LayoutInflater inflater;
         Context context;
 
-        public CustomAdapter(ArrayList<Item> datas, Context context) {
+        public CustomAdapter(ArrayList<FruitData> datas, Context context) {
             this.context = context;
             this.datas = datas;
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -107,29 +144,39 @@ MainActivity_List extends AppCompatActivity {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item, null);
             }
+            // FindViewById
             ImageView imageView = convertView.findViewById(R.id.imageView);
-            imageView.setImageResource(datas.get(position).imageView);
-
             TextView textView = convertView.findViewById(R.id.textView);
-            textView.setText(datas.get(position).textView);
-
             TextView textview = convertView.findViewById(R.id.textview);
-            textview.setText(datas.get(position).textview);
+            Button btn = convertView.findViewById(R.id.btn1);
 
-            Button btn1 = convertView.findViewById(R.id.btn1);
-            final View finalConvertView = convertView;
-            final View finalConvertView1 = convertView;
-            btn1.setOnClickListener(new View.OnClickListener() {
+            // setData
+            Glide.with(context).load(datas.get(position).getFruitImg()).into(imageView);
+          // Glide.with(context).load("http://ext.fmkorea.com/files/attach/new/20170811/486616/638771632/739224727/99b983892094b5c6d2fc3736e15da7d1.jpg");
+
+            textView.setText(datas.get(position).getFruitName());
+            textview.setText(datas.get(position).getFruitDesc());
+
+            btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(finalConvertView.getContext(), recyclerviewActivity.class);
+                    Intent intent = new Intent(context, DetailActivity.class);
                     context.startActivity(intent);
                 }
             });
+
+
+            // 1. Call by vaule, Call by reference 차이점
+            // 2. Glide 사용법
+            // >> RecyclerView 신경쓰지말고
+            // >> listView 로만 좀 데이터다운 데이터를 셋팅하고
+            // >> 과일 이딴거 말고
+            // 아이템에 더 많은 데이터가 들어가는걸로 꼴랑 이미지하나 텍스트하나큰 너무 양아치같음
 
 
             return convertView;
         }
 
 
+    }
 }

@@ -5,4 +5,32 @@ package Data;
  */
 
 public class FruitData {
+    String FruitName;
+    String FruitDesc;
+    int FruitImg;
+
+    public String getFruitName() {
+        return FruitName;
+    }
+
+    public void setFruitName(String fruitName) {
+        FruitName = fruitName;
+    }
+
+    public String getFruitDesc() {
+        return FruitDesc;
+    }
+
+    public void setFruitDesc(String fruitDesc) {
+        FruitDesc = fruitDesc;
+    }
+
+    public int getFruitImg() {
+        return FruitImg;
+    }
+
+    public void setFruitImg(int fruitImg) {
+        FruitImg = fruitImg;
+    }
+
 }
