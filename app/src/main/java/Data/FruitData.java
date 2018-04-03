@@ -8,6 +8,15 @@ public class FruitData {
     String FruitName;
     String FruitDesc;
     int FruitImg;
+    int DetailImg;
+
+    public int getDetailImg() {
+        return DetailImg;
+    }
+
+    public void setDetailImg(int detailImg) {
+        DetailImg = detailImg;
+    }
 
     public String getFruitName() {
         return FruitName;

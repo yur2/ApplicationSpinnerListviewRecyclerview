@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,8 +22,8 @@ import Data.FruitData;
 public class MainActivity_List extends AppCompatActivity {
 
     private ListView listView;
-    ArrayList<FruitData> datas;
-    FruitData data;
+    public ArrayList<FruitData> datas;
+    public FruitData data;
 
 
     @Override
@@ -39,68 +38,6 @@ public class MainActivity_List extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter(datas, this);
         listView.setAdapter(customAdapter);
 
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-
-                if (datas.get(0).equals("눈")) {
-                    intent.putExtra("eye", R.mipmap.eyedetail);
-                    startActivity(intent);
-
-                } else if (datas.get(3).equals("입")) {
-                    intent.putExtra("lip", R.mipmap.lipdetail);
-                    startActivity(intent);
-
-                } else if (datas.get(6).equals("척추")) {
-                    intent.putExtra("lip", R.mipmap.backdetail);
-                    startActivity(intent);
-
-                } else if (datas.get(9).equals("미세먼지")) {
-                    intent.putExtra("lip", R.mipmap.airdetail);
-                    startActivity(intent);
-
-                } else if (datas.get(12).equals("손")) {
-                    intent.putExtra("lip", R.mipmap.handdetail);
-                    startActivity(intent);
-
-                } else if (datas.get(15).equals("감기")) {
-                    intent.putExtra("lip", R.mipmap.colddetail);
-                    startActivity(intent);
-                }
-                else if (datas.get(18).equals("암")) {
-                    intent.putExtra("lip", R.mipmap.disease1);
-                    startActivity(intent);
-                }
-                else if (datas.get(21).equals("질병")) {
-                    intent.putExtra("lip", R.mipmap.diseases1);
-                    startActivity(intent);
-                }
-                else if (datas.get(24).equals("우울")) {
-                    intent.putExtra("lip", R.mipmap.melancolie1);
-                    startActivity(intent);
-                }
-                else if (datas.get(27).equals("건강음식")) {
-                    intent.putExtra("lip", R.mipmap.healthfood1);
-                    startActivity(intent);
-                }
-                else if (datas.get(30).equals("폭염")) {
-                    intent.putExtra("lip", R.mipmap.hothot1);
-                    startActivity(intent);
-                }
-                else if (datas.get(33).equals("수면")) {
-                    intent.putExtra("lip", R.mipmap.sleep1);
-                    startActivity(intent);
-                }
-
-            }
-
-
-        });
-
     }
 
 
@@ -112,6 +49,7 @@ public class MainActivity_List extends AppCompatActivity {
         data.setFruitName("눈");
         data.setFruitDesc("눈에 대한 건강 상식");
         data.setFruitImg(R.mipmap.eye);
+        data.setDetailImg(R.mipmap.eyedetail);
 
         datas.add(data);
 
@@ -120,6 +58,7 @@ public class MainActivity_List extends AppCompatActivity {
         data.setFruitName("입");
         data.setFruitDesc("입에 대한 건강 상식");
         data.setFruitImg(R.mipmap.lip);
+        data.setDetailImg(R.mipmap.lipdetail);
 
         datas.add(data);
 
@@ -128,6 +67,7 @@ public class MainActivity_List extends AppCompatActivity {
         data.setFruitName("척추");
         data.setFruitDesc("척추에 대한 건강 상식");
         data.setFruitImg(R.mipmap.back);
+        data.setDetailImg(R.mipmap.backdetail);
 
         datas.add(data);
 
@@ -136,6 +76,7 @@ public class MainActivity_List extends AppCompatActivity {
         data.setFruitName("미세먼지");
         data.setFruitDesc("미세먼지에 대한 건강 상식");
         data.setFruitImg(R.mipmap.air);
+        data.setDetailImg(R.mipmap.airdetail);
 
         datas.add(data);
 
@@ -144,6 +85,7 @@ public class MainActivity_List extends AppCompatActivity {
         data.setFruitName("손");
         data.setFruitDesc("손에 대한 건강 상식");
         data.setFruitImg(R.mipmap.hand);
+        data.setDetailImg(R.mipmap.handdetail);
 
         datas.add(data);
 
@@ -152,6 +94,7 @@ public class MainActivity_List extends AppCompatActivity {
         data.setFruitName("감기");
         data.setFruitDesc("감기에 대한 건강 상식");
         data.setFruitImg(R.mipmap.cold);
+        data.setDetailImg(R.mipmap.colddetail);
 
         datas.add(data);
 
@@ -159,7 +102,8 @@ public class MainActivity_List extends AppCompatActivity {
 
         data.setFruitName("암");
         data.setFruitDesc("암에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.disease);
+        data.setFruitImg(R.mipmap.disease1);
+        data.setDetailImg(R.mipmap.disease);
 
         datas.add(data);
 
@@ -167,7 +111,8 @@ public class MainActivity_List extends AppCompatActivity {
 
         data.setFruitName("질병");
         data.setFruitDesc("질병에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.diseases);
+        data.setFruitImg(R.mipmap.diseases1);
+        data.setDetailImg(R.mipmap.diseases);
 
         datas.add(data);
 
@@ -175,7 +120,8 @@ public class MainActivity_List extends AppCompatActivity {
 
         data.setFruitName("우울");
         data.setFruitDesc("우울증에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.melancolie);
+        data.setFruitImg(R.mipmap.melancolie1);
+        data.setDetailImg(R.mipmap.melancolie);
 
         datas.add(data);
 
@@ -183,7 +129,8 @@ public class MainActivity_List extends AppCompatActivity {
 
         data.setFruitName("건강음식");
         data.setFruitDesc("건강음식에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.healthfood);
+        data.setFruitImg(R.mipmap.healthfood1);
+        data.setDetailImg(R.mipmap.healthfood);
 
         datas.add(data);
 
@@ -191,7 +138,8 @@ public class MainActivity_List extends AppCompatActivity {
 
         data.setFruitName("폭염");
         data.setFruitDesc("폭염에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.hothot);
+        data.setFruitImg(R.mipmap.hothot1);
+        data.setDetailImg(R.mipmap.hothot);
 
         datas.add(data);
 
@@ -199,27 +147,13 @@ public class MainActivity_List extends AppCompatActivity {
 
         data.setFruitName("수면");
         data.setFruitDesc("수면에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.sleep);
+        data.setFruitImg(R.mipmap.sleep1);
+        data.setDetailImg(R.mipmap.sleep);
 
         datas.add(data);
 
 
-
     }
-
-    //
-//    @Override
-//    public void onClick(View v) {
-//    public void dd() {
-//        Intent intent = new Intent(this, DetailActivity.class);
-//        if (datas.get(0).equals("눈")) {
-//            intent.putExtra("eye", R.mipmap.eyedetail);
-//
-//        } else if (datas.get(3).equals("입")) {
-//            intent.putExtra("lip", R.mipmap.lipdetail);
-//
-//        }
-//    }
 
 
     class CustomAdapter extends BaseAdapter {
@@ -260,7 +194,7 @@ public class MainActivity_List extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item, null);
@@ -282,6 +216,11 @@ public class MainActivity_List extends AppCompatActivity {
                 public void onClick(View v) {
 
                     Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("getFruitName", datas.get(position).getFruitName());
+                    intent.putExtra("getFruitImg", datas.get(position).getFruitImg());
+                    intent.putExtra("getFruitDesc", datas.get(position).getFruitDesc());
+                    intent.putExtra("getDetailImg",datas.get(position).getDetailImg());
+
 
                     context.startActivity(intent);
 
@@ -304,29 +243,3 @@ public class MainActivity_List extends AppCompatActivity {
     }
 }
 
-
-//
-//                    if (datas.get(0).equals("눈")) {
-//                        intent.putExtra("eye", R.mipmap.eyedetail);
-//                        startActivity(intent);
-//
-//                    } else if (datas.get(3).equals("입")) {
-//                        intent.putExtra("lip", R.mipmap.lipdetail);
-//                        startActivity(intent);
-//
-//                    } else if (datas.get(6).equals("척추")) {
-//                        intent.putExtra("lip", R.mipmap.backdetail);
-//                        startActivity(intent);
-//
-//                    } else if (datas.get(9).equals("미세먼지")) {
-//                        intent.putExtra("lip", R.mipmap.airdetail);
-//                        startActivity(intent);
-//
-//                    } else if (datas.get(12).equals("손")) {
-//                        intent.putExtra("lip", R.mipmap.handdetail);
-//                        startActivity(intent);
-//
-//                    } else if (datas.get(15).equals("감기")) {
-//                        intent.putExtra("lip", R.mipmap.colddetail);
-//                        startActivity(intent);
-//}
