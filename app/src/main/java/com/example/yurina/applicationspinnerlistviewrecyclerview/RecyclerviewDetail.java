@@ -40,7 +40,7 @@ public class RecyclerviewDetail extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecyclerviewDetail.this, MainActivity_List.class);
+                Intent intent = new Intent(RecyclerviewDetail.this, recyclerviewActivity.class);
                 startActivity(intent);
             }
         });

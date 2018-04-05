@@ -9,6 +9,15 @@ public class DiseaseData {
     String DiseaseDesc;
     int DiseaseImg;
     int DiseaseImg2;
+    String MusicImg;
+
+    public String getMusicImg() {
+        return MusicImg;
+    }
+
+    public void setMusicImg(String musicImg) {
+        MusicImg = musicImg;
+    }
 
     public String getDiseaseName() {
         return DiseaseName;
