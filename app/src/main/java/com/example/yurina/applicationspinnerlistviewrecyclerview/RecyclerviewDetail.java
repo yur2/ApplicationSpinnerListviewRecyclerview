@@ -11,9 +11,10 @@ import java.util.ArrayList;
 
 import Data.DiseaseData;
 
-public class DetailActivity extends AppCompatActivity {
 
-    ArrayList<DiseaseData> datas;
+public class RecyclerviewDetail extends AppCompatActivity {
+
+    ArrayList<DiseaseData> array2;
     ImageView imageView;
 
     @Override
@@ -22,25 +23,27 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
-        DiseaseData data = new DiseaseData();
+        DiseaseData save= new DiseaseData();
 
-        data.setDiseaseName(intent.getExtras().getString("getDiseaseName"));
-        data.setDiseaseImg(intent.getExtras().getInt("getDiseaseImg"));
-        data.setDiseaseDesc(intent.getExtras().getString("getDiseaseDesc"));
-        data.setDiseaseImg2(intent.getExtras().getInt("getDiseaseImg2"));
+        save.setDiseaseName(intent.getExtras().getString("getDiseaseName"));
+        save.setDiseaseImg(intent.getExtras().getInt("getDiseaseImg"));
+        save.setDiseaseDesc(intent.getExtras().getString("getDiseaseDesc"));
+        save.setDiseaseImg2(intent.getExtras().getInt("getDiseaseImg2"));
+
+
 
         imageView = findViewById(R.id.image2);
 
-        imageView.setImageResource(data.getDiseaseImg2());
+        imageView.setImageResource(save.getDiseaseImg2());
 
         Button backbtn = (Button) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, MainActivity_List.class);
+                Intent intent = new Intent(RecyclerviewDetail.this, MainActivity_List.class);
                 startActivity(intent);
             }
         });
     }
-}
 
+}

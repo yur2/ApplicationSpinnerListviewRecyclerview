@@ -17,13 +17,13 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import Data.FruitData;
+import Data.DiseaseData;
 
 public class MainActivity_List extends AppCompatActivity {
 
     private ListView listView;
-    public ArrayList<FruitData> datas;
-    public FruitData data;
+    public ArrayList<DiseaseData> datas;
+    public DiseaseData data;
 
 
     @Override
@@ -44,111 +44,111 @@ public class MainActivity_List extends AppCompatActivity {
     private void dataLoader() {
 
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("눈");
-        data.setFruitDesc("눈에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.eye);
-        data.setDetailImg(R.mipmap.eyedetail);
-
-        datas.add(data);
-
-        data = new FruitData();
-
-        data.setFruitName("입");
-        data.setFruitDesc("입에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.lip);
-        data.setDetailImg(R.mipmap.lipdetail);
+        data.setDiseaseName("눈");
+        data.setDiseaseDesc("눈에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.eye);
+        data.setDiseaseImg2(R.mipmap.eyedetail);
 
         datas.add(data);
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("척추");
-        data.setFruitDesc("척추에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.back);
-        data.setDetailImg(R.mipmap.backdetail);
-
-        datas.add(data);
-
-        data = new FruitData();
-
-        data.setFruitName("미세먼지");
-        data.setFruitDesc("미세먼지에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.air);
-        data.setDetailImg(R.mipmap.airdetail);
+        data.setDiseaseName("입");
+        data.setDiseaseDesc("입에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.lip);
+        data.setDiseaseImg2(R.mipmap.lipdetail);
 
         datas.add(data);
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("손");
-        data.setFruitDesc("손에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.hand);
-        data.setDetailImg(R.mipmap.handdetail);
-
-        datas.add(data);
-
-        data = new FruitData();
-
-        data.setFruitName("감기");
-        data.setFruitDesc("감기에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.cold);
-        data.setDetailImg(R.mipmap.colddetail);
+        data.setDiseaseName("척추");
+        data.setDiseaseDesc("척추에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.back);
+        data.setDiseaseImg2(R.mipmap.backdetail);
 
         datas.add(data);
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("암");
-        data.setFruitDesc("암에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.disease1);
-        data.setDetailImg(R.mipmap.disease);
-
-        datas.add(data);
-
-        data = new FruitData();
-
-        data.setFruitName("질병");
-        data.setFruitDesc("질병에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.diseases1);
-        data.setDetailImg(R.mipmap.diseases);
+        data.setDiseaseName("미세먼지");
+        data.setDiseaseDesc("미세먼지에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.air);
+        data.setDiseaseImg2(R.mipmap.airdetail);
 
         datas.add(data);
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("우울");
-        data.setFruitDesc("우울증에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.melancolie1);
-        data.setDetailImg(R.mipmap.melancolie);
-
-        datas.add(data);
-
-        data = new FruitData();
-
-        data.setFruitName("건강음식");
-        data.setFruitDesc("건강음식에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.healthfood1);
-        data.setDetailImg(R.mipmap.healthfood);
+        data.setDiseaseName("손");
+        data.setDiseaseDesc("손에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.hand);
+        data.setDiseaseImg2(R.mipmap.handdetail);
 
         datas.add(data);
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("폭염");
-        data.setFruitDesc("폭염에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.hothot1);
-        data.setDetailImg(R.mipmap.hothot);
+        data.setDiseaseName("감기");
+        data.setDiseaseDesc("감기에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.cold);
+        data.setDiseaseImg2(R.mipmap.colddetail);
 
         datas.add(data);
 
-        data = new FruitData();
+        data = new DiseaseData();
 
-        data.setFruitName("수면");
-        data.setFruitDesc("수면에 대한 건강 상식");
-        data.setFruitImg(R.mipmap.sleep1);
-        data.setDetailImg(R.mipmap.sleep);
+        data.setDiseaseName("암");
+        data.setDiseaseDesc("암에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.disease1);
+        data.setDiseaseImg2(R.mipmap.disease);
+
+        datas.add(data);
+
+        data = new DiseaseData();
+
+        data.setDiseaseName("질병");
+        data.setDiseaseDesc("질병에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.diseases1);
+        data.setDiseaseImg2(R.mipmap.diseases);
+
+        datas.add(data);
+
+        data = new DiseaseData();
+
+        data.setDiseaseName("우울");
+        data.setDiseaseDesc("우울증에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.melancolie1);
+        data.setDiseaseImg2(R.mipmap.melancolie);
+
+        datas.add(data);
+
+        data = new DiseaseData();
+
+        data.setDiseaseName("건강음식");
+        data.setDiseaseDesc("건강음식에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.healthfood1);
+        data.setDiseaseImg2(R.mipmap.healthfood);
+
+        datas.add(data);
+
+        data = new DiseaseData();
+
+        data.setDiseaseName("폭염");
+        data.setDiseaseDesc("폭염에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.hothot1);
+        data.setDiseaseImg2(R.mipmap.hothot);
+
+        datas.add(data);
+
+        data = new DiseaseData();
+
+        data.setDiseaseName("수면");
+        data.setDiseaseDesc("수면에 대한 건강 상식");
+        data.setDiseaseImg(R.mipmap.sleep1);
+        data.setDiseaseImg2(R.mipmap.sleep);
 
         datas.add(data);
 
@@ -158,11 +158,11 @@ public class MainActivity_List extends AppCompatActivity {
 
     class CustomAdapter extends BaseAdapter {
 
-        ArrayList<FruitData> datas;
+        ArrayList<DiseaseData> datas;
         LayoutInflater inflater;
         Context context;
 
-        public CustomAdapter(ArrayList<FruitData> datas, Context context) {
+        public CustomAdapter(ArrayList<DiseaseData> datas, Context context) {
             this.context = context;
             this.datas = datas;
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -206,20 +206,20 @@ public class MainActivity_List extends AppCompatActivity {
             Button btn = convertView.findViewById(R.id.btn1);
 
             // setData
-            Glide.with(context).load(datas.get(position).getFruitImg()).into(imageView);
+            Glide.with(context).load(datas.get(position).getDiseaseImg()).into(imageView);
 
-            textView.setText(datas.get(position).getFruitName());
-            textview.setText(datas.get(position).getFruitDesc());
+            textView.setText(datas.get(position).getDiseaseName());
+            textview.setText(datas.get(position).getDiseaseDesc());
 
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     Intent intent = new Intent(context, DetailActivity.class);
-                    intent.putExtra("getFruitName", datas.get(position).getFruitName());
-                    intent.putExtra("getFruitImg", datas.get(position).getFruitImg());
-                    intent.putExtra("getFruitDesc", datas.get(position).getFruitDesc());
-                    intent.putExtra("getDetailImg",datas.get(position).getDetailImg());
+                    intent.putExtra("getDiseaseName", datas.get(position).getDiseaseName());
+                    intent.putExtra("getDiseaseImg", datas.get(position).getDiseaseImg());
+                    intent.putExtra("getDiseaseDesc", datas.get(position).getDiseaseDesc());
+                    intent.putExtra("getDiseaseImg2",datas.get(position).getDiseaseImg2());
 
 
                     context.startActivity(intent);
